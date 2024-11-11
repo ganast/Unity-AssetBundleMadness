@@ -37,7 +37,7 @@ namespace com.ganast.jm.unity.BundleMadness {
         public static BundleMadnessSettings GetSettings() {
             if (settings == null) {
                 if (!File.Exists(BundleMadnessConfig.PATH_SETTINGS)) {
-                    BundleMadness.Log("Settings not found, creating.");
+                    Debug.Log("Settings not found, creating.");
                     Directory.CreateDirectory(BundleMadnessConfig.PATH_FULL);
                     settings = new BundleMadnessSettings();
                     settings.Save(BundleMadnessConfig.PATH_SETTINGS);

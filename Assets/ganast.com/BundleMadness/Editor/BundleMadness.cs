@@ -506,6 +506,7 @@ namespace com.ganast.jm.unity.BundleMadness {
          */
         [MenuItem("ganast.com/BundleMadness/About", priority = 1000)]
         private static void About() {
+            Application.OpenURL("https://github.com/ganast/Unity-BundleMadness");
         }
 
         /**
@@ -529,7 +530,7 @@ namespace com.ganast.jm.unity.BundleMadness {
                 logScrollPosition.y = (int) GUI.skin.label.CalcSize(new GUIContent(logText)).y;
             }
             catch (Exception) {
-
+                // oh, well...
             }
 
 #if DEBUG
