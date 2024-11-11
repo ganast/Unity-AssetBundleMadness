@@ -93,7 +93,7 @@ public void OnManifestFetchSuccess(BundleMadnessManifest manifest) {
 
 ```
 
-### Loading a remote asset bundle
+### Load a remote asset bundle
 
 TODO
 
