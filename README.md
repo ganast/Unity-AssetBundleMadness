@@ -74,16 +74,16 @@ The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` na
 
 ```
 public void FetchManifest() {
-	BundleMadnessClient client = BundleMadnessClient.GetInstance();
-	client.SetURL("https://www.example.com/assetbundles");
-	client.FetchManifest(OnManifestFetchSuccess);
+    BundleMadnessClient client = BundleMadnessClient.GetInstance();
+    client.SetURL("https://www.example.com/assetbundles");
+    client.FetchManifest(OnManifestFetchSuccess);
 }
 
 public void OnManifestFetchSuccess(BundleMadnessManifest manifest) {
     foreach (string bundle in manifest.bundles.Keys) {
     Debug.Log(bundle);
     foreach (string asset in manifest.bundles[bundle]) {
-		Debug.Log($"- {asset}");
+        Debug.Log($"- {asset}");
     }
 }
 
