@@ -70,7 +70,11 @@ NOTE: Only password-based authentication is supported at this time.
 
 The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` namespace provides a simple API for accessing remote asset bundles and metadata build and published via this tool. Some examples follow.
 
-### Fetching build contents
+### Fetch build contents (via the build manifest)
+
+TODO
+
+### Fetch build contents (via the custom manifest)
 
 ```
 public void FetchManifest() {
