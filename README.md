@@ -68,11 +68,26 @@ NOTE: Only password-based authentication is supported at this time.
 
 ## Client API
 
-The `BundleMadnessClass` class under the `com.ganast.jm.unity.BundleMadness` namespace provides a simple API for accessing remote asset bundles and metadata build and published via this tool. Some examples follow.
+The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` namespace provides a simple API for accessing remote asset bundles and metadata build and published via this tool. Some examples follow.
 
 ### Fetching build contents
 
-TODO
+```
+public void FetchManifest() {
+	BundleMadnessClient client = BundleMadnessClient.GetInstance();
+	client.SetURL("https://www.example.com/assetbundles");
+	client.FetchManifest(OnManifestFetchSuccess);
+}
+
+public void OnManifestFetchSuccess(BundleMadnessManifest manifest) {
+    foreach (string bundle in manifest.bundles.Keys) {
+    Debug.Log(bundle);
+    foreach (string asset in manifest.bundles[bundle]) {
+		Debug.Log($"- {asset}");
+    }
+}
+
+```
 
 ### Loading a remote asset bundle
 
