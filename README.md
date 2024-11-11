@@ -1,4 +1,4 @@
-# Unity-AssetBundleMadness
+# Unity-BundleMadness
 A simple tool to assist in workflows involving building asset bundles and publishing them via SSH.
 
 CAUTION: This tool messes with filesystem contents locally and remotely without asking for confirmation for any action taken. It is up to you to provide correct settings (paths, etc.) If you don't, you will lose data. You have been warned.
