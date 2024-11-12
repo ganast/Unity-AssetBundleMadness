@@ -99,7 +99,7 @@ public void OnManifestFetchSuccess(BundleMadnessManifest manifest) {
             Debug.Log($"- {asset}");
         }
     }
-	// todo: also save the manifest reference for future access...
+    // todo: also save the manifest reference for future access...
 }
 
 ```
@@ -117,7 +117,7 @@ public void OnBundleFetchSuccess(AssetBundle bundle) {
     foreach (string asset in bundle.GetAllAssetNames()) {
         Debug.Log(asset);
     }
-	// todo: also save the instance reference for future access...
+    // todo: also save the instance reference for future access...
 }
 
 ```
