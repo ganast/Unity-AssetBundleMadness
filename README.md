@@ -73,7 +73,7 @@ NOTE: Only password-based authentication is supported at this time.
 
 ## Client API
 
-The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` namespace provides a simple API for accessing remote asset bundles and metadata build and published via this tool. Some examples follow.
+The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` namespace provides a simple API for accessing remote asset bundles and metadata build and published via this tool. A sample scene illustrates various ways for discovering asset bundles and their contents, fetching asset bundles, loading assets and instantiating prefabs, along with some rudimentary caching. Some examples follow:
 
 ### Fetch build contents (via the build manifest)
 
@@ -94,17 +94,43 @@ public void FetchManifest() {
 
 public void OnManifestFetchSuccess(BundleMadnessManifest manifest) {
     foreach (string bundle in manifest.bundles.Keys) {
-    Debug.Log(bundle);
-    foreach (string asset in manifest.bundles[bundle]) {
-        Debug.Log($"- {asset}");
+        Debug.Log(bundle);
+        foreach (string asset in manifest.bundles[bundle]) {
+            Debug.Log($"- {asset}");
+        }
     }
+	// todo: also save the manifest reference for future access...
 }
 
 ```
 
 ### Load a remote asset bundle
 
-TODO
+```
+public void FetchBundle() {
+    BundleMadnessClient client = BundleMadnessClient.GetInstance();
+    client.SetURL("https://www.example.com/assetbundles");
+    client.FetchBundle("spheres", OnBundleFetchSuccess);
+}
+
+public void OnBundleFetchSuccess(AssetBundle bundle) {
+    foreach (string asset in bundle.GetAllAssetNames()) {
+        Debug.Log(asset);
+    }
+	// todo: also save the instance reference for future access...
+}
+
+```
+
+### Load and instantiate a prefab
+
+```
+protected void SpawnRedSphere(AssetBundle spheresBundle) {
+    string prefabPath = $"assets/assetbundles/spheres/coloured/redsphere.prefab";
+    GameObject redSpherePrefab = spheresBundle.LoadAsset<GameObject>(prefabPath);
+    Instantiate(redSpherePrefab);
+}
+```
 
 ## License
 
