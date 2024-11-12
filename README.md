@@ -126,7 +126,7 @@ public void OnBundleFetchSuccess(AssetBundle bundle) {
 protected void SpawnRedSphere(AssetBundle spheresBundle) {
     string prefabPath = $"assets/assetbundles/spheres/coloured/redsphere.prefab";
     GameObject redSpherePrefab = spheresBundle.LoadAsset<GameObject>(prefabPath);
-    Instantiate(redSpherePrefab);
+    GameObject redSphere = Instantiate(redSpherePrefab);
 }
 ```
 
