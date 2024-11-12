@@ -101,7 +101,6 @@ public void OnManifestFetchSuccess(BundleMadnessManifest manifest) {
     }
     // todo: also save the manifest reference for future access...
 }
-
 ```
 
 ### Load a remote asset bundle
@@ -119,7 +118,6 @@ public void OnBundleFetchSuccess(AssetBundle bundle) {
     }
     // todo: also save the instance reference for future access...
 }
-
 ```
 
 ### Load and instantiate a prefab
