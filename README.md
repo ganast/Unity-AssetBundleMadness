@@ -33,19 +33,19 @@ In addition to a regular build that consists of a number of asset bundles and a 
 {
   "bundles": {
     "Cubes": [
-      "Assets/AssetBundles\\Cubes\\DefaultCube.prefab",
-      "Assets/AssetBundles\\Cubes\\Coloured\\BlueCube.prefab",
-      "Assets/AssetBundles\\Cubes\\Coloured\\RedCube.prefab"
+      "Assets/AssetBundles/Cubes/DefaultCube.prefab",
+      "Assets/AssetBundles/Cubes/Coloured/BlueCube.prefab",
+      "Assets/AssetBundles/Cubes/Coloured/RedCube.prefab"
     ],
     "Materials": [
-      "Assets/AssetBundles\\Materials\\Blue.mat",
-      "Assets/AssetBundles\\Materials\\Green.mat",
-      "Assets/AssetBundles\\Materials\\Red.mat"
+      "Assets/AssetBundles/Materials/Blue.mat",
+      "Assets/AssetBundles/Materials/Green.mat",
+      "Assets/AssetBundles/Materials/Red.mat"
     ],
     "Spheres": [
-      "Assets/AssetBundles\\Spheres\\Coloured\\DefaultSphere.prefab",
-      "Assets/AssetBundles\\Spheres\\Coloured\\GreenSphere.prefab",
-      "Assets/AssetBundles\\Spheres\\Coloured\\RedSphere.prefab"
+      "Assets/AssetBundles/Spheres/Coloured/DefaultSphere.prefab",
+      "Assets/AssetBundles/Spheres/Coloured/GreenSphere.prefab",
+      "Assets/AssetBundles/Spheres/Coloured/RedSphere.prefab"
     ]
   }
 }
