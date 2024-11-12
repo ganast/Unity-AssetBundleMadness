@@ -32,21 +32,26 @@ In addition to a regular build that consists of a number of asset bundles and a 
 ```
 {
   "bundles": {
-    "Bottles": [
-      "Assets/AssetBundles/Bottles/Bottle/BottleModel.fbx",
-      "Assets/AssetBundles/Bottles/Bottle/BottleModel.prefab"
+    "Cubes": [
+      "Assets/AssetBundles\\Cubes\\DefaultCube.prefab",
+      "Assets/AssetBundles\\Cubes\\Coloured\\BlueCube.prefab",
+      "Assets/AssetBundles\\Cubes\\Coloured\\RedCube.prefab"
     ],
-    "Cups": [
-      "Assets/AssetBundles/Cups/Cup/CupModel.fbx",
-      "Assets/AssetBundles/Cups/Cup/CupModel.prefab"
+    "Materials": [
+      "Assets/AssetBundles\\Materials\\Blue.mat",
+      "Assets/AssetBundles\\Materials\\Green.mat",
+      "Assets/AssetBundles\\Materials\\Red.mat"
     ],
-    "Skulls": [
-      "Assets/AssetBundles/Skulls/SkullModel.fbx",
-      "Assets/AssetBundles/Skulls/SkullPrefab.prefab"
+    "Spheres": [
+      "Assets/AssetBundles\\Spheres\\Coloured\\DefaultSphere.prefab",
+      "Assets/AssetBundles\\Spheres\\Coloured\\GreenSphere.prefab",
+      "Assets/AssetBundles\\Spheres\\Coloured\\RedSphere.prefab"
     ]
   }
 }
 ```
+
+Note that the custom manifest does not include dependency information (for the time being). It is up to you to load asset bundles in the correct order.
 
 You can inspect the contents of each asset bundle in the build folder with the buttons on the left.
 
@@ -72,9 +77,13 @@ The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` na
 
 ### Fetch build contents (via the build manifest)
 
+This method requires that each individual asset bundle be loaded before its contents can be discovered:
+
 TODO
 
 ### Fetch build contents (via the custom manifest)
+
+This method allows for asset bundle contents discovery without the need to load each individual asset bundle before checking out its contents:
 
 ```
 public void FetchManifest() {
