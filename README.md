@@ -7,7 +7,7 @@ DISCLAIMER: This is partly an experiment and partly the basis for an in-house to
 
 ## Installation
 
-Import the lastest release. Imported files are found under "Assets/Editor/ganast.com/BundleMadness".
+Import the lastest release. Imported files are found under "Assets/ganast.com/BundleMadness".
 
 The settings file will be created automatically with default settings.
 
@@ -116,7 +116,7 @@ public void OnBundleFetchSuccess(AssetBundle bundle) {
     foreach (string asset in bundle.GetAllAssetNames()) {
         Debug.Log(asset);
     }
-    // todo: also save the instance reference for future access...
+    // todo: also save the bundle reference for future access...
 }
 ```
 
