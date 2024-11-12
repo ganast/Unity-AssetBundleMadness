@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 
 using UnityEngine;
@@ -11,8 +10,11 @@ namespace com.ganast.jm.unity.BundleMadness {
      */
     public class BundleMadnessClient: MonoBehaviour {
 
-        public delegate void FetchBundleSuccessCallback(AssetBundle bundle);
-        public delegate void FetchBundleErrorCallback(string error, UnityWebRequest.Result result);
+        public delegate void OnFetchManifestSuccess(BundleMadnessManifest manifest);
+        public delegate void OnFetchManifestError(UnityWebRequest.Result result, string error);
+
+        public delegate void OnFetchBundleSuccess(AssetBundle bundle);
+        public delegate void OnFetchBundleError(UnityWebRequest.Result result, string error);
 
         private static BundleMadnessClient inst = null;
 
@@ -53,42 +55,67 @@ namespace com.ganast.jm.unity.BundleMadness {
         /**
          * @todo: doc
          */
-        public void FetchManifest(BundleMadnessManifest.FetchManifestSuccessCallback successHandler, BundleMadnessManifest.FetchManifestErrorCallback errorHandler = null) {
+        public void FetchManifest(OnFetchManifestSuccess successHandler, OnFetchManifestError errorHandler = null) {
             if (url == null) {
                 return;
             }
-            BundleMadnessManifest.FromURL(this, $"{url}/MANIFEST", successHandler, errorHandler);
-        }
-
-
-        /**
-         * @todo: doc
-         */
-        public void FetchBundle(string name, FetchBundleSuccessCallback successHandler, FetchBundleErrorCallback errorHandler = null) {
-            if (url == null) {
-                return;
-            }
-            StartCoroutine(FetchBundleImpl(name, successHandler, errorHandler));
+            StartCoroutine(FetchManifestWorker(successHandler, errorHandler));
         }
 
         /**
          * @todo: doc
          */
-        protected IEnumerator FetchBundleImpl(string name, FetchBundleSuccessCallback successHandler, FetchBundleErrorCallback errorHandler) {
+        protected IEnumerator FetchManifestWorker(OnFetchManifestSuccess successHandler, OnFetchManifestError errorHandler = null) {
 
-            if (url == null) {
-                yield break;
+            using (UnityWebRequest request = UnityWebRequest.Get($"{url}/MANIFEST")) {
+
+                yield return request.SendWebRequest();
+
+                if (request.result != UnityWebRequest.Result.Success && errorHandler != null) {
+                    errorHandler(request.result, request.error);
+                }
+                else {
+                    BundleMadnessManifest manifest = BundleMadnessManifest.FromJSON(request.downloadHandler.text);
+                    if (manifest == null && errorHandler != null) {
+                        errorHandler(UnityWebRequest.Result.DataProcessingError, "Could not parse JSON");
+                    }
+                    else {
+                        successHandler(manifest);
+                    }
+                }
             }
+        }
+
+        /**
+        * @todo: doc
+        */
+        public void FetchBundle(string name, OnFetchBundleSuccess successHandler, OnFetchBundleError errorHandler = null) {
+            if (url == null) {
+                return;
+            }
+            StartCoroutine(FetchBundleWorker(name, successHandler, errorHandler));
+        }
+
+        /**
+          * @todo: doc
+          */
+        protected IEnumerator FetchBundleWorker(string name, OnFetchBundleSuccess successHandler, OnFetchBundleError errorHandler) {
 
             using (UnityWebRequest request = UnityWebRequestAssetBundle.GetAssetBundle($"{url}/{name}")) {
 
                 yield return request.SendWebRequest();
 
                 if (request.result != UnityWebRequest.Result.Success && errorHandler != null) {
-                    errorHandler(request.error, request.result);
+                    errorHandler(request.result, request.error);
                 }
                 else {
-                    successHandler(DownloadHandlerAssetBundle.GetContent(request));
+                    AssetBundle bundle = DownloadHandlerAssetBundle.GetContent(request);
+                    if (bundle == null) {
+                        errorHandler(request.result, "DownloadHandlerAssetBundle has no content");
+                    }
+                    else {
+                        successHandler(bundle);
+                    }
                 }
             }
         }

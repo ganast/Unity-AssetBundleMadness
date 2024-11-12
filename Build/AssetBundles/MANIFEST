@@ -1,0 +1,19 @@
+{
+  "bundles": {
+    "Cubes": [
+      "Assets/AssetBundles\\Cubes\\DefaultCube.prefab",
+      "Assets/AssetBundles\\Cubes\\Coloured\\BlueCube.prefab",
+      "Assets/AssetBundles\\Cubes\\Coloured\\RedCube.prefab"
+    ],
+    "Materials": [
+      "Assets/AssetBundles\\Materials\\Blue.mat",
+      "Assets/AssetBundles\\Materials\\Green.mat",
+      "Assets/AssetBundles\\Materials\\Red.mat"
+    ],
+    "Spheres": [
+      "Assets/AssetBundles\\Spheres\\Coloured\\DefaultSphere.prefab",
+      "Assets/AssetBundles\\Spheres\\Coloured\\GreenSphere.prefab",
+      "Assets/AssetBundles\\Spheres\\Coloured\\RedSphere.prefab"
+    ]
+  }
+}

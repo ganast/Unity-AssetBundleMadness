@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 2391794037
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f396be983bbad996f4900534cf360c0f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 16c8aa2ea7eeb9c3aebb6cebe2273284
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: f396be983bbad996f4900534cf360c0f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/AssetBundles/Cubes/Coloured/RedCube.prefab
+- Assets/AssetBundles/Cubes/DefaultCube.prefab
+- Assets/AssetBundles/Cubes/Coloured/BlueCube.prefab
+Dependencies:
+- D:/Code/Utilities/Unity/Unity-BundleMadness/Build/AssetBundles/materials
