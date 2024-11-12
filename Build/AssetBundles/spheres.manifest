@@ -1,15 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1901151087
+CRC: 363281701
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 575a30abf14682eebbade5a164af7554
+    Hash: 3fa0d6459781c50fdd6381f4472f5515
   TypeTreeHash:
     serializedVersion: 2
     Hash: 52d98f26dac52af9a4aebe27e283fb1e
   IncrementalBuildHash:
     serializedVersion: 2
-    Hash: 575a30abf14682eebbade5a164af7554
+    Hash: 3fa0d6459781c50fdd6381f4472f5515
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -32,6 +32,6 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/AssetBundles/Spheres/Coloured/RedSphere.prefab
 - Assets/AssetBundles/Spheres/Coloured/GreenSphere.prefab
-- Assets/AssetBundles/Spheres/Coloured/DefaultSphere.prefab
+- Assets/AssetBundles/Spheres/DefaultSphere.prefab
 Dependencies:
 - D:/Code/Utilities/Unity/Unity-BundleMadness/Build/AssetBundles/materials

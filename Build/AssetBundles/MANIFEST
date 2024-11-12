@@ -11,7 +11,7 @@
       "Assets/AssetBundles\\Materials\\Red.mat"
     ],
     "Spheres": [
-      "Assets/AssetBundles\\Spheres\\Coloured\\DefaultSphere.prefab",
+      "Assets/AssetBundles\\Spheres\\DefaultSphere.prefab",
       "Assets/AssetBundles\\Spheres\\Coloured\\GreenSphere.prefab",
       "Assets/AssetBundles\\Spheres\\Coloured\\RedSphere.prefab"
     ]

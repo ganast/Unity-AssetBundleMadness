@@ -36,14 +36,14 @@ public class BundleMadnessClientTestbed: MonoBehaviour {
                     Quaternion.identity);
             }
             catch (Exception ex) {
-                Debug.Log($"[BundleMadnessClientTestbed] ERROR: Could not spawn prefab: {ex.Message})");
+                Debug.Log($"[BundleMadnessClientTestbed] ERROR: Could not spawn prefab: {ex.Message}");
             }
         }
     }
 
     public void OnGUI() {
 
-        GUILayout.BeginArea(new Rect(10, 10, 300, Screen.height / 3 - 10));
+        GUILayout.BeginArea(new Rect(10, 10, 300, Screen.height - 20));
 
         BundleMadnessClient client = BundleMadnessClient.GetInstance();
 
@@ -51,28 +51,40 @@ public class BundleMadnessClientTestbed: MonoBehaviour {
             client.FetchManifest(OnManifestFetchSuccess, OnManifestFetchError);
         }
 
-        if (GUILayout.Button("Fetch Bottles bundle")) {
-            client.FetchBundle("bottles", OnBundleFetchSuccess, OnBundleFetchError);
+        if (GUILayout.Button("Fetch Materials bundle")) {
+            client.FetchBundle("materials", OnBundleFetchSuccess, OnBundleFetchError);
         }
 
-        if (GUILayout.Button("Spawn Bottle prefab")) {
-            SpawnPrefab("bottles", "bottle/bottlemodel.prefab");
+        if (GUILayout.Button("Fetch Cubes bundle")) {
+            client.FetchBundle("cubes", OnBundleFetchSuccess, OnBundleFetchError);
         }
 
-        if (GUILayout.Button("Fetch Cups bundle")) {
-            client.FetchBundle("cups", OnBundleFetchSuccess, OnBundleFetchError);
+        if (GUILayout.Button("Spawn Red Cube prefab")) {
+            SpawnPrefab("cubes", "coloured/redcube.prefab");
         }
 
-        if (GUILayout.Button("Spawn Cup prefab")) {
-            SpawnPrefab("cups", "cup/cupmodel.prefab");
+        if (GUILayout.Button("Spawn Blue Cube prefab")) {
+            SpawnPrefab("cubes", "coloured/bluecube.prefab");
         }
 
-        if (GUILayout.Button("Fetch Skulls bundle")) {
-            client.FetchBundle("skulls", OnBundleFetchSuccess, OnBundleFetchError);
+        if (GUILayout.Button("Spawn Default Cube prefab")) {
+            SpawnPrefab("cubes", "defaultcube.prefab");
         }
 
-        if (GUILayout.Button("Spawn Skull prefab")) {
-            SpawnPrefab("skulls", "skullprefab.prefab");
+        if (GUILayout.Button("Fetch Spheres bundle")) {
+            client.FetchBundle("spheres", OnBundleFetchSuccess, OnBundleFetchError);
+        }
+
+        if (GUILayout.Button("Spawn Red Sphere prefab")) {
+            SpawnPrefab("spheres", "coloured/redsphere.prefab");
+        }
+
+        if (GUILayout.Button("Spawn Green Sphere prefab")) {
+            SpawnPrefab("spheres", "coloured/greensphere.prefab");
+        }
+
+        if (GUILayout.Button("Spawn Default Sphere prefab")) {
+            SpawnPrefab("spheres", "defaultsphere.prefab");
         }
 
         GUILayout.EndArea();
