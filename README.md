@@ -7,7 +7,7 @@ DISCLAIMER: This is partly an experiment and partly the basis for an in-house to
 
 ## Installation
 
-Import the lastest release. Imported files are found under "Assets/ganast.com/BundleMadness".
+Import the latest release. Imported files are found under "Assets/ganast.com/BundleMadness".
 
 The settings file will be created automatically with default settings.
 
@@ -59,7 +59,7 @@ Click on the folder link next to "Build directory" to select a different directo
 
 ## Publishing asset bundles
 
-You can publish build asset bundles along with additional metadata to a remote destination via SSH.
+You can publish built asset bundles along with additional metadata to a remote destination via SSH.
 
 ![](doc/publish.jpg)
 
