@@ -43,7 +43,7 @@ In addition to a regular build that consists of a number of asset bundles and a 
       "Assets/AssetBundles/Materials/Red.mat"
     ],
     "Spheres": [
-      "Assets/AssetBundles/Spheres/Coloured/DefaultSphere.prefab",
+      "Assets/AssetBundles/Spheres/DefaultSphere.prefab",
       "Assets/AssetBundles/Spheres/Coloured/GreenSphere.prefab",
       "Assets/AssetBundles/Spheres/Coloured/RedSphere.prefab"
     ]
@@ -73,7 +73,7 @@ NOTE: Only password-based authentication is supported at this time.
 
 ## Client API
 
-The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` namespace provides a simple API for accessing remote asset bundles and metadata build and published via this tool. A sample scene illustrates various ways for discovering asset bundles and their contents, fetching asset bundles, loading assets and instantiating prefabs, along with some rudimentary caching. Some examples follow:
+The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` namespace provides a simple API for accessing remote asset bundles and metadata built and published via this tool. A sample scene illustrates various ways for discovering asset bundles and their contents, fetching asset bundles, loading assets and instantiating prefabs, along with some rudimentary caching. Some examples follow:
 
 ### Fetch build contents (via the build manifest)
 
@@ -123,7 +123,7 @@ public void OnBundleFetchSuccess(AssetBundle bundle) {
 ### Load and instantiate a prefab
 
 ```
-protected void SpawnRedSphere(AssetBundle spheresBundle) {
+public void SpawnRedSphere(AssetBundle spheresBundle) {
     string prefabPath = $"assets/assetbundles/spheres/coloured/redsphere.prefab";
     GameObject redSpherePrefab = spheresBundle.LoadAsset<GameObject>(prefabPath);
     GameObject redSphere = Instantiate(redSpherePrefab);
