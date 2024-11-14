@@ -5,6 +5,10 @@
 
 # Additional by ganast.com
 .vsconfig
+/Assets/Newtonsoft.Json
+/Assets/Newtonsoft.Json.meta
+/Assets/SSH.NET
+/Assets/SSH.NET.meta
 
 /[Ll]ibrary/
 /[Tt]emp/
