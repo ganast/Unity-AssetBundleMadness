@@ -157,4 +157,4 @@ BundleMadness is licensed under the MIT License. See LICENSE.
 
 ## Copyright
 
-(c) 2024 by ganast (ganast@ganast.com)
+Copyright (c) 2024 by ganast (ganast@ganast.com)
