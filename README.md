@@ -1,4 +1,7 @@
 # Unity-BundleMadness
+
+Version 1.0.1 alpha 1
+
 A simple tool to assist in workflows involving building asset bundles and publishing them via SSH.
 
 CAUTION: This tool messes with filesystem contents locally and remotely without asking for confirmation for any action taken. It is up to you to provide correct settings (paths, etc.) If you don't, you will lose data. You have been warned.
@@ -79,7 +82,25 @@ The `BundleMadnessClient` class under the `com.ganast.jm.unity.BundleMadness` na
 
 This method requires that each individual asset bundle be loaded before its contents can be discovered:
 
-TODO
+```
+public void FetchBuildManifest() {
+    BundleMadnessClient client = BundleMadnessClient.GetInstance();
+    string buildBundleName = new DirectoryInfo(client.GetURL()).Name;
+    client.FetchBundle(buildBundleName, OnBuildBundleFetchSuccess);
+}
+
+public void OnBuildBundleFetchSuccess(AssetBundle buildBundle) {
+    AssetBundleManifest buildManifest = buildBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+    if (buildManifest != null) {
+        foreach (string bundle in buildManifest.GetAllAssetBundles()) {
+            Debug.Log($"[BundleMadnessClientTestbed] {bundle}");
+        }
+    }
+    else {
+        Debug.Log($"[BundleMadnessClientTestbed] ERROR: Could not load build manifest");
+    }
+}
+```
 
 ### Fetch build contents (via the custom manifest)
 
