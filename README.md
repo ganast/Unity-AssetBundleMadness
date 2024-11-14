@@ -90,10 +90,12 @@ public void FetchBuildManifest() {
 }
 
 public void OnBuildBundleFetchSuccess(AssetBundle buildBundle) {
-    AssetBundleManifest buildManifest = buildBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
+    AssetBundleManifest buildManifest =
+        buildBundle.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
     if (buildManifest != null) {
         foreach (string bundle in buildManifest.GetAllAssetBundles()) {
             Debug.Log($"[BundleMadnessClientTestbed] {bundle}");
+            // todo: load asset bundle, get all asset names in it, etc...
         }
     }
     else {
