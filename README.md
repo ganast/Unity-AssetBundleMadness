@@ -1,6 +1,6 @@
 # Unity-BundleMadness
 
-Version 1.0.1 alpha 1
+Version 1.0
 
 A simple tool to assist in workflows involving building asset bundles and publishing them via SSH.
 
